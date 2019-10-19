@@ -2,16 +2,11 @@ import React, {Component} from 'react';
 import {
   View,
   SafeAreaView,
-  Text,
   Image,
-  Dimensions,
   StyleSheet,
   ImageBackground,
 } from 'react-native';
-import Colors from '../constants/Colors';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-
-const {height, width} = Dimensions.get('window');
+import Button from '../components/Button';
 
 class WelcomeScreen extends Component {
   constructor(props) {
@@ -24,6 +19,7 @@ class WelcomeScreen extends Component {
   };
 
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <SafeAreaView style={styles.container}>
         <ImageBackground
@@ -35,12 +31,18 @@ class WelcomeScreen extends Component {
             style={styles.logo}
           />
           <View style={styles.bottom}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Create an Account</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Log In</Text>
-            </TouchableOpacity>
+            <Button
+              label={'Create an Account'}
+              onPress={() => {
+                navigate('Login');
+              }}
+            />
+            <Button
+              label={'Log In'}
+              onPress={() => {
+                navigate('Signup');
+              }}
+            />
           </View>
         </ImageBackground>
       </SafeAreaView>
@@ -65,19 +67,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     marginBottom: 50,
-  },
-  button: {
-    height: height * 0.07,
-    width: width * 0.75,
-    backgroundColor: Colors.primary,
-    marginBottom: 20,
-    borderRadius: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonText: {
-    color: Colors.buttonTextColor,
-    fontSize: 20,
   },
 });
 
