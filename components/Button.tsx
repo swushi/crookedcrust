@@ -4,22 +4,18 @@ import Colors from '../constants/Colors';
 
 const {height, width} = Dimensions.get('window');
 
-class Button extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => this.props.onPress()}>
-        <Text style={styles.buttonText}>{this.props.label}</Text>
-      </TouchableOpacity>
-    );
-  }
+interface ButtonProps {
+  label: String;
+  onPress: Function;
 }
+
+const Button = (props: ButtonProps) => {
+  return (
+    <TouchableOpacity style={styles.button} onPress={() => props.onPress()}>
+      <Text style={styles.buttonText}>{props.label}</Text>
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   button: {
