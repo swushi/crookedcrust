@@ -1,5 +1,5 @@
 export default {
   primary: '#B20839',
-  background: '#fff',
+  background: '#EEEEEE',
   buttonTextColor: '#fff',
 };

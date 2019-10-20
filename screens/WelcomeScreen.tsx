@@ -6,49 +6,40 @@ import {
   StyleSheet,
   ImageBackground,
 } from 'react-native';
+import {NavigationActions} from 'react-navigation';
 import Button from '../components/Button';
+import Logo from '../components/Logo';
 
-class WelcomeScreen extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  static navigationOptions = {
-    header: null,
-  };
-
-  render() {
-    const {navigate} = this.props.navigation;
-    return (
-      <SafeAreaView style={styles.container}>
-        <ImageBackground
-          source={require('../assets/MeanGreen.jpg')}
-          style={styles.backgroundImg}>
-          <Image
-            source={require('../assets/CC_logo.png')}
-            resizeMode={'cover'}
-            style={styles.logo}
-          />
-          <View style={styles.bottom}>
-            <Button
-              label={'Create an Account'}
-              onPress={() => {
-                navigate('Login');
-              }}
-            />
-            <Button
-              label={'Log In'}
-              onPress={() => {
-                navigate('Signup');
-              }}
-            />
-          </View>
-        </ImageBackground>
-      </SafeAreaView>
-    );
-  }
+interface WelcomeScreenProps {
+  navigation: any;
 }
+
+const WelcomeScreen = (props: WelcomeScreenProps) => {
+  const {navigate} = props.navigation;
+  return (
+    <SafeAreaView style={styles.container}>
+      <ImageBackground
+        source={require('../assets/MeanGreen.jpg')}
+        style={styles.backgroundImg}>
+        <Logo />
+        <View style={styles.bottom}>
+          <Button
+            label={'Create an Account'}
+            onPress={() => {
+              navigate('Signup');
+            }}
+          />
+          <Button
+            label={'Log In'}
+            onPress={() => {
+              navigate('Login');
+            }}
+          />
+        </View>
+      </ImageBackground>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -58,10 +49,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center',
-  },
-  logo: {
-    width: '40%',
-    height: '20%',
   },
   bottom: {
     flex: 1,
