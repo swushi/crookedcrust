@@ -15,6 +15,12 @@ import Button from '../components/Button';
 const {height, width} = Dimensions.get('window');
 
 const LoginScreen = (props: any) => {
+  function _login() {
+    const {navigate} = props.navigation;
+
+    navigate('Main');
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity
@@ -30,7 +36,7 @@ const LoginScreen = (props: any) => {
         <InputBox placeholder={'Password'} secureTextEntry />
       </View>
       <View style={styles.linksContainer}>
-        <Button label={'Log In'} onPress={() => null} />
+        <Button label={'Log In'} onPress={() => _login()} />
         <TouchableOpacity onPress={() => null}>
           <Text style={styles.forgotPassword}>Forgot Password?</Text>
         </TouchableOpacity>
