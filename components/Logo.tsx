@@ -4,7 +4,7 @@ import {Image, View, Dimensions} from 'react-native';
 const {height, width} = Dimensions.get('window');
 
 interface LogoProps {
-  size?: string;
+  size?: number;
 }
 
 const Logo = (props: LogoProps) => {
@@ -12,7 +12,7 @@ const Logo = (props: LogoProps) => {
     <View
       style={{
         alignItems: 'center',
-        height: height * 0.3,
+        height: props.size || height * 0.3,
       }}>
       <Image
         style={{flex: 1}}
