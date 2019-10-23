@@ -6,13 +6,18 @@ import Colors from '../constants/Colors';
 const {height, width} = Dimensions.get('window');
 
 interface InputBoxProps {
-  placeholder: string;
+  placeholder?: string;
+  secureTextEntry?: boolean;
 }
 
 const InputBox = (props: InputBoxProps) => {
   return (
     <View style={styles.container}>
-      <TextInput placeholder={props.placeholder} style={styles.input} />
+      <TextInput
+        placeholder={props.placeholder}
+        style={styles.input}
+        secureTextEntry={props.secureTextEntry}
+      />
     </View>
   );
 };

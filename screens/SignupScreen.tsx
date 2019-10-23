@@ -27,8 +27,8 @@ const SignupScreen = (props: any) => {
       <Logo />
       <View style={styles.inputContainers}>
         <InputBox placeholder={'Email'} />
-        <InputBox placeholder={'Password'} />
-        <InputBox placeholder={'Confirm Password'} />
+        <InputBox placeholder={'Password'} secureTextEntry />
+        <InputBox placeholder={'Confirm Password'} secureTextEntry />
       </View>
       <View style={styles.linksContainer}>
         <Button label={'Sign Up'} onPress={() => null} />
