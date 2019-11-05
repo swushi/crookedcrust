@@ -13,8 +13,10 @@ const MenuList = (props: MenuListProps) => {
   return (
     <View style={styles.subContent}>
       <Text style={styles.contentLabel}>{props.category}</Text>
-      <ScrollView horizontal>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <MenuItem name="Mean Green" />
+        <MenuItem name="Test" />
+        <MenuItem name= "test2" />
       </ScrollView>
     </View>
   );

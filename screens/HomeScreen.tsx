@@ -29,11 +29,12 @@ const HomeScreen = (props: HomeScreenProps) => {
           <Icon name="cart" size={36} />
         </TouchableOpacity>
       </View>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}> 
         <Logo size={height * 0.15} />
         <View>
           <MenuList category="Pizzas" />
           <MenuList category="Hoagies" />
+          <MenuList category="Appetizers/Desserts" />
         </View>
       </ScrollView>
     </SafeAreaView>
